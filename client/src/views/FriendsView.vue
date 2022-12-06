@@ -14,13 +14,13 @@
   <main>
     <div>
       <div class="control ">
-        <input class="input" type="text" placeholder="Search" v-model="search"  />
+        <input class="input" type="text" placeholder="Search by NAME" v-model="search"  />
       </div>
 
       <div class="friends">
-        <RouterLink v-for="friend in friends" :key="friend.id" 
+        <RouterLink v-for="friend in friends" :key="friend._id" 
                           class="friend" :class="{ 'is-disabled': isLoading }"
-                          :to="`/friend/${friend.id}`"
+                          :to="`/friend/${friend._id}`"
                           v-show="friend.name.toLowerCase().includes(search.toLowerCase())">
           <div class="friend-image">
             <img :src="friend.smallphoto" :alt="friend.name" />

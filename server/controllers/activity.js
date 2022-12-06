@@ -1,27 +1,26 @@
 const express = require('express');
-const products = require('../models/products');
+const activities = require('../models/activities');
 
 const app = express.Router();
 
 app
     .get('/', (req, res, next) => {
-        products.getProducts()
+        activities.getActivity()
         .then(x=>res.status(200).send(x))
         .catch(next)
     })
     .get('/:id', (req, res) => {
-
-        products.getProduct(+req.params.id)
+        activities.getActivity(req.params.id)
         .then(x=>res.status(200).send(x))
         .catch(next)
-        if (product) {
-            res.status(200).send(product);
+        if (activity) {
+            res.status(200).send(activity);
         } else {
-            res.status(404).send('Product not found');
+            res.status(404).send('Activity not found');
         }
     })
-    .post('/seed', (req, res, next) => {
-        products.seed()
+    .post('/addActivity', (req, res, next) => {
+        friends.addActivity()
         .then(x=>res.status(200).send(x))
         .catch(next)
     });

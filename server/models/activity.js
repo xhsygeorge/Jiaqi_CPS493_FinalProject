@@ -1,37 +1,36 @@
-const data = require('../data/products.json');
+const data = require('../data/activity.json');
 const { connect } = require('./mongo');
 const { ObjectId } = require('mongodb')
 
-const COLLECTION_NAME = 'products';
+const COLLECTION_NAME = 'activity';
 
 async function collection() {
     const client = await connect();
-    return client.db('chopiphy').collection('products');
+    return client.db('chopiphy').collection(COLLECTION_NAME);
 }
 
-async function getProducts(limit=30, skip=0) {
+async function getActivities(limit=20, skip=0) {
     const db = await collection();
     const data =await db.find().limit(limit).skip(skip).toArray();
-    return {total:(await data).length, length: (await data).length, products:data};
+    return {total:data.length, length:data.length, activity:data};
 }
 
-async function getProduct(id) {
+async function getActivity(id) {
     const db = await collection();
     const data = db.findOne({ _id:  new ObjectId(id)});
     return data;
 }
 
-async function seed(){
+async function addActivity(){
     const db = await collection();
     db.deleteMany();
-    db.insertMany(data.products);
+    db.insertMany(data.activity);
     return 'success';
 }
-
 module.exports = {
     COLLECTION_NAME,
     collection,
-    getProducts,
-    getProduct,
-    seed,
+    getActivities,
+    getActivity,
+    addActivity,
 };

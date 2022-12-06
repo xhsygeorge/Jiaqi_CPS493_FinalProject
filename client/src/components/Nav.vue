@@ -1,17 +1,17 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
-    import Cart from './Search.vue';
+    import Toplist from './Toplist.vue';
     import LoginBadge from './LoginBadge.vue';
     import MessageList from './MessageList.vue';
 
     const isActive = ref(false);
-    const isCartOpen = ref(false);
+    const isOpen = ref(false);
 
 </script>
 
 <template>
-    <Cart :is-open="isCartOpen" />
+    <Toplist :is-open="isOpen" />
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
 
         <div class="container">
@@ -33,8 +33,8 @@
               Friends
             </router-link>
 
-            <router-link to="/friendszone" class="navbar-item">
-              Friends Zone
+            <router-link to="/activity" class="navbar-item">
+              Activity
             </router-link>
       
             <div class="navbar-item has-dropdown is-hoverable">
@@ -53,8 +53,8 @@
           <div class="navbar-end">
             <MessageList />
             <div class="navbar-item">
-                <button class="button is-primary" @click="isCartOpen = !isCartOpen">
-                  <strong>Search </strong>
+                <button class="button is-primary" @click="isOpen = !isOpen">
+                  <strong>Besties</strong>
                 </button>
               </div>
             <div class="navbar-item">

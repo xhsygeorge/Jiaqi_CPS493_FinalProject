@@ -10,7 +10,7 @@ app
         .catch(next)
     })
     .get('/:id', (req, res) => {
-        friends.getFriend(+req.params.id)
+        friends.getFriend(req.params.id)
         .then(x=>res.status(200).send(x))
         .catch(next)
         if (friend) {

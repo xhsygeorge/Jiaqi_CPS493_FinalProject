@@ -2,7 +2,6 @@
     import { login } from '../stores/session';
     import { ref } from 'vue';
 
-    const email = ref('');
     const password = ref('');
     const name = ref('');
 
@@ -10,18 +9,11 @@
 
 <template>
     <div>
-        <form class="box" @submit.prevent="login(name, email, password)">
+        <form class="box" @submit.prevent="login(name, password)">
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
                     <input class="input" type="text" placeholder="First & Last Name" v-model="name">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input class="input" type="email" placeholder="e.g. alex@example.com" v-model="email">
                 </div>
             </div>
 

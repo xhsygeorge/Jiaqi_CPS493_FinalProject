@@ -4,7 +4,7 @@ export function getFriends() {
   return api<ListEnvelope<Friend>>('friends');
 }
 
-export function getFriend(id: number) {
+export function getFriend(id: string) {
   return api<Friend>(`friends/${id}`)
 }
 
@@ -16,6 +16,7 @@ export interface ListEnvelope<T> {
 }
   
 export interface Friend {
+  _id:string
   id: number
   name: string
   username: string

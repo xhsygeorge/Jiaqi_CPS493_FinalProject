@@ -9,7 +9,7 @@
   
   const friend = ref(null as Friend | null);
 
-  getFriend(+route.params.id).then(x => {
+  getFriend(route.params.id as string).then(x => {
     friend.value = x
     console.log('The fetch returned');
   });

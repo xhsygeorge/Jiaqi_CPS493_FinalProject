@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import HomeView from '../views/HomeView.vue'
 import ReportView from '../views/ReportView.vue'
-import FriendsZoneView from '../views/FriendsZoneView.vue'
+import ActivityView from '../views/ActivityView.vue'
 import FriendsView from '../views/FriendsView.vue'
 
 
@@ -25,9 +25,9 @@ const router = createRouter({
       component: ReportView,
     },
     {
-      path: '/friendszone',
-      name: 'friendszone',
-      component: FriendsZoneView,
+      path: '/activity',
+      name: 'activity',
+      component: ActivityView,
     },
     {
       path: '/friends',
