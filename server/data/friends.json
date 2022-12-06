@@ -1,0 +1,31 @@
+{
+    "friends":[
+        {
+            "id": 1,
+            "name": "George",
+            "username": "chenj53",
+            "smallphoto":"",
+            "images":[],
+            "bio":"This is George Chen."
+        },
+        {
+            "id": 2,
+            "name": "Ivan",
+            "username": "zhoui1",
+            "smallphoto":"",
+            "images":[],
+            "bio":"This is Ivan Zhou."
+        },
+        {
+            "id":3,
+            "name":"Dylan",
+            "username": "yud4",
+            "smallphoto":"",
+            "images":[],
+            "bio":"This is Dylan Yu."
+        }
+    ],
+    "total":25,
+    "skip": 0,
+    "limit":25
+}    
