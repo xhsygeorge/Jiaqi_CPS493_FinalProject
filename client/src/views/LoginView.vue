@@ -1,6 +1,8 @@
 <script setup lang="ts">
     import { login } from '../stores/session';
     import { ref } from 'vue';
+    import google_login from "../components/LoginBadge.vue"
+    import { RouterLink } from 'vue-router';
 
     const password = ref('');
     const name = ref('');
@@ -28,6 +30,8 @@
                 Sign in
             </button>
         </form>
+        <b>To log in with google accounts, click <u>Log in</u> button at top right conner.
+        </b>
     </div>
 </template>
 
