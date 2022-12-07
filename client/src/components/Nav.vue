@@ -1,7 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { RouterLink } from 'vue-router';
-    import Toplist from './Toplist.vue';
     import LoginBadge from './LoginBadge.vue';
     import MessageList from './MessageList.vue';
 
@@ -11,7 +10,7 @@
 </script>
 
 <template>
-    <Toplist :is-open="isOpen" />
+    <div>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
 
         <div class="container">
@@ -27,10 +26,6 @@
           <div class="navbar-start">
             <router-link to="/" class="navbar-item">
               Home
-            </router-link>
-      
-            <router-link to="/friends" class="navbar-item">
-              Friends
             </router-link>
 
             <router-link to="/activity" class="navbar-item">
@@ -52,11 +47,7 @@
       
           <div class="navbar-end">
             <MessageList />
-            <div class="navbar-item">
-                <button class="button is-primary" @click="isOpen = !isOpen">
-                  <strong>Besties</strong>
-                </button>
-              </div>
+            
             <div class="navbar-item">
 
               <login-badge></login-badge>
@@ -65,7 +56,7 @@
         </div>
         </div>
       </nav>
-      
+    </div>
 </template>
 
 <style>
