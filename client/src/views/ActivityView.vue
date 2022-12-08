@@ -5,7 +5,7 @@
   import { RouterLink } from "vue-router";
 
   const activities = reactive([] as Activity[]);
-  getActivities().then( x=> activities.push(...x.activities));
+  getActivities().then( x=> activities.push(...x.activity));
 
 </script>
 

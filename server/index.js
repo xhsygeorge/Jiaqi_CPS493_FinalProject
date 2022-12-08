@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express()
 
-const friendsController = require('./controllers/friends');
-
+const activityController = require('./controllers/activity')
 
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
@@ -20,18 +19,10 @@ app.use('/', express.static('./client/dist'));
 app.use(express.json());
 
 app
-.get('/', (req, res) => {
-    res.status(200).send('Happy Sweet New Year');
-})
 .get('/error', (req, res) => {
     sss.PORT();
 })
-.use('/api/v1/friends', friendsController)
-
-app.get('*', (req, res) => {
-    
-    res.sendFile('index.html', {root: './client/dist'});
-})
+.use('/api/v1/activities', activityController)
 
 app.use((err, req, res, next) => {
     console.log(err);

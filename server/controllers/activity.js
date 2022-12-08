@@ -1,5 +1,5 @@
 const express = require('express');
-const activities = require('../models/activities');
+const activities = require('../models/activity');
 
 const app = express.Router();
 
@@ -20,7 +20,7 @@ app
         }
     })
     .post('/addActivity', (req, res, next) => {
-        friends.addActivity()
+        activities.addActivity()
         .then(x=>res.status(200).send(x))
         .catch(next)
     });

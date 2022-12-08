@@ -1,5 +1,5 @@
 
-http://127.0.0.1:3000/api/v1/friends/
+http://127.0.0.1:3000/api/v1/activity/
 
 ###
 http://127.0.0.1:3000/api/v1/products/
@@ -18,3 +18,6 @@ POST http://127.0.0.1:3000/api/v1/cart/mp@np/9/1
 
 ###
 PATCH http://127.0.0.1:3000/api/v1/cart/mp@np.edu/6/5
+
+###
+http://127.0.0.1:5173/activity
