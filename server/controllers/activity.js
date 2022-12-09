@@ -5,8 +5,11 @@ const app = express.Router();
 
 app
     .get('/', (req, res, next) => {
-        activities.getActivity()
-        .then(x=>res.status(200).send(x))
+        activities.getActivities()
+        .then(x=> {
+            console.log({x})
+            res.status(200).send(x)
+        })
         .catch(next)
     })
     .get('/:id', (req, res) => {

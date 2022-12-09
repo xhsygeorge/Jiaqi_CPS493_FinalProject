@@ -12,7 +12,7 @@ async function collection() {
 async function getActivities(limit=20, skip=0) {
     const db = await collection();
     const data =await db.find().limit(limit).skip(skip).toArray();
-    return {total:data.length, length:data.length, activity:data};
+    return {total:data.length, length:data.length, activities:data};
 }
 
 async function getActivity(id) {
