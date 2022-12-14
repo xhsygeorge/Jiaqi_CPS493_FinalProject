@@ -54,13 +54,4 @@
   .activity-info {
       font-size: small;
   }
-
-  .price {
-      display: flex;
-      align-items: flex-start;
-  }
-
-  .amount {
-      font-size: x-large;
-  }
 </style>
