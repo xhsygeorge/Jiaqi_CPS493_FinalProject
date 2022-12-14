@@ -40,21 +40,21 @@
         }
     }
 
-   async function cancel() {
-    await router.push({ name: 'admin_activities' });    
-   } 
+    async function cancel() {
+        await router.push({ name: 'admin_activities' });    
+    } 
 
 
-   const isTenorSearchOpen = ref(false);
-   const tenorSearch = ref('');
-   const tenorResults = ref([] as any[]);
+    const isTenorSearchOpen = ref(false);
+    const tenorSearch = ref('');
+    const tenorResults = ref([] as any[]);
 
 
-   watch(tenorSearch, async () => {
-       if(tenorSearch.value.length > 2){
-        const data = await fetch(`https://tenor.googleapis.com/v2/search?q=${tenorSearch.value}&key=${import.meta.env.VITE_TENOR_API_KEY}&limit=8`)
-                            .then(x=> x.json())
-        console.log({ data });
+    watch(tenorSearch, async () => {
+        if(tenorSearch.value.length > 2){
+            const data = await fetch(`https://tenor.googleapis.com/v2/search?q=${tenorSearch.value}&key=${import.meta.env.VITE_TENOR_API_KEY}&limit=8`)
+                        .then(x=> x.json())
+            console.log({ data });
         tenorResults.value = data.results;
        }
     });
