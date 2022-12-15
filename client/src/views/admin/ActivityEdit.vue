@@ -4,6 +4,7 @@
     import { useRoute, useRouter } from "vue-router";
 
     import { addActivity, getActivity, updateActivity, type Activity } from "@/stores/activities";
+    import { createDescription } from "@/features/gpt/gpt";
 
     const route = useRoute();
     const router = useRouter();
@@ -24,6 +25,12 @@
 
     const type = ref(['Walk', 'Run', 'Skate','Jog','Hike','Climb','Ski']);
     api<string[]>('activities/type').then(x=> type.value = x);
+
+    async function getGptIntro() {
+        const intro = await createDescription(activity.value.activityname);
+        activity.value.intro = intro;
+        return intro;
+    }
 
     async function save(){
         try {
@@ -144,12 +151,13 @@
                     
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                            <label class="label">Description</label>
+                            <label class="label">Intro</label>
+                            <button class="button is-warning is-small" @click.prevent="getGptIntro" >Generate</button>
                         </div>
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <textarea class="textarea" placeholder="Full description of product" v-model="activity.intro"></textarea>
+                                    <textarea class="textarea" placeholder="Details of your activity" v-model="activity.intro"></textarea>
                                 </div>
                             </div>
                         </div>
