@@ -28,6 +28,21 @@ const router = createRouter({
       name: 'report',
       component: ReportView,
     },
+    {
+      path: '/admin/activity',
+      name: 'admin_activity',
+      component: () => import('../views/admin/ActivityList.vue'),
+    },
+    {
+      path: '/admin/activity/:id',
+      name: 'admin_activity_edit',
+      component: () => import('../views/admin/ActivityEdit.vue'),
+    },
+    {
+      path: '/admin/activity_images/:id',
+      name: 'admin_activity_images',
+      component: () => import('../views/admin/ActivityImages.vue'),
+    },
   ]
 })
 
