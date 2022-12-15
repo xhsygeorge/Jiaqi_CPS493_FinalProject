@@ -27,10 +27,18 @@ async function addActivity(){
     db.insertMany(data.activity);
     return 'success';
 }
+
+async function searchActivity(){
+    const db = await collection();
+    const data = db.find({activityname:{$regex: q, $options: 'i'}} ).toArray();
+    return {total:data.length, length:data.length, activities:data};
+}
+
 module.exports = {
     COLLECTION_NAME,
     collection,
     getActivities,
     getActivity,
     addActivity,
+    searchActivity,
 };

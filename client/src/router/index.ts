@@ -34,12 +34,12 @@ const router = createRouter({
       component: () => import('../views/admin/ActivityList.vue'),
     },
     {
-      path: '/admin/activity/:id',
+      path: '/admin/activity/:_id',
       name: 'admin_activity_edit',
       component: () => import('../views/admin/ActivityEdit.vue'),
     },
     {
-      path: '/admin/activity_images/:id',
+      path: '/admin/activity_images/:_id',
       name: 'admin_activity_images',
       component: () => import('../views/admin/ActivityImages.vue'),
     },

@@ -6,13 +6,10 @@ const app = express.Router();
 app
     .get('/', (req, res, next) => {
         activities.getActivities()
-        .then(x=> {
-            console.log({x})
-            res.status(200).send(x)
-        })
+        .then(x=>res.status(200).send(x))
         .catch(next)
     })
-    .get('/:id', (req, res) => {
+    .get('/:id', (req, res, next) => {
         activities.getActivity(req.params.id)
         .then(x=>res.status(200).send(x))
         .catch(next)
@@ -26,6 +23,11 @@ app
         activities.addActivity()
         .then(x=>res.status(200).send(x))
         .catch(next)
+    })
+    .patch('/:id', (req, res, next) => {
+        activities.updateActivity(req.params.id, req.body)
+        .then(x=> res.status(200).send(x))
+        .catch(next);
     });
 
 
